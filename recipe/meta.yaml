@@ -41,8 +41,22 @@ requirements:
     - typing-extensions >=4.12.0
 
 test:
+  source_files:
+    - .
   imports:
     - docket
+  requires:
+    - pip
+    - docker-py >=7.1.0
+    - pytest >=9.0.2
+    - pytest-asyncio >=0.24.0
+    - pytest-randomly >=4.0.0
+    - pytest-timeout >=2.4.0
+    - pytest-xdist >=3.6.1
+    - pytest-cov
+  commands:
+    - pip check
+    - pytest tests/test_dependencies_core.py --no-cov --ignore="tests/instrumentation" --ignore="tests/worker/test_scheduling.py"
 
 about:
   home: https://github.com/chrisguidry/docket
