@@ -29,7 +29,7 @@ requirements:
     - exceptiongroup >=1.2.0  # [py<311]
     - fakeredis >=2.32.1
     # fakeredis[lua]
-    - lupa
+    - lupa >=2.0
     - taskgroup >=0.2.2  # [py<311]
     - opentelemetry-api >=1.33.0
     - prometheus_client >=0.21.1
