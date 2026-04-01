@@ -11,6 +11,8 @@ source:
 
 build:
   number: 0
+  # py-key-value-aio not available for Python 3.14
+  skip: true  # [py>313]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - docket = docket.__main__:app
