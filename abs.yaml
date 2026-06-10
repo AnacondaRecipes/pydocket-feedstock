@@ -1,4 +1,0 @@
-# Staging deps not yet on defaults (burner-redis, uncalled-for)
-channels:
-  - https://staging.continuum.io/pbp/fs/burner-redis-feedstock/pr1/f6af5c9
-  - https://staging.continuum.io/pbp/fs/uncalled-for-feedstock/pr2/df3c766
