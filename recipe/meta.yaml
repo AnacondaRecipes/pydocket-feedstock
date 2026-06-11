@@ -1,5 +1,5 @@
 {% set name = "pydocket" %}
-{% set version = "0.18.2" %}
+{% set version = "0.19.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: cc2051d15557f83bb164a83b0743fa9c12c2bfe9a9145cff3a5922b4935ce4f5
+  sha256: 5bfb42a8fd76e67c7caee1ca8ee268850f7d09d53507dd0211821f2ac7757ba1
 
 build:
   number: 0
-  # py-key-value-aio not available for Python 3.14
-  skip: true  # [py>313]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - docket = docket.__main__:app
@@ -29,7 +27,7 @@ requirements:
     - cloudpickle >=3.1.1
     - cronsim >=2.6
     - exceptiongroup >=1.2.0  # [py<311]
-    - fakeredis >=2.32.1
+    - fakeredis >=2.35.0
     # fakeredis[lua]
     - lupa >=2.0
     - taskgroup >=0.2.2  # [py<311]
@@ -43,6 +41,8 @@ requirements:
     - typing-extensions >=4.12.0
     - python-tzdata >=2025.2  # [win]
     - uncalled-for >=0.2.0
+  run_constrained:
+    - opentelemetry-sdk >=1.33.0  # metrics
 
 test:
   imports:
@@ -51,9 +51,10 @@ test:
     - pip
   commands:
     - pip check
+    - docket --help
 
 about:
-  home: https://github.com/chrisguidry/docket
+  home: https://docket.lol/
   license: MIT
   license_family: MIT
   license_file: LICENSE
@@ -63,7 +64,7 @@ about:
     focus on scheduling future work. It requires a Redis server with Streams
     support (Redis 5.0.0+).
   dev_url: https://github.com/chrisguidry/docket
-  doc_url: https://github.com/chrisguidry/docket
+  doc_url: https://docket.lol/
 
 extra:
   recipe-maintainers:
