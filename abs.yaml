@@ -1,3 +1,0 @@
-# Staging dep not yet on defaults (fakeredis >=2.35.0)
-channels:
-  - https://staging.continuum.io/pbp/fs/fakeredis-feedstock/pr4/46dc299
