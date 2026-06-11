@@ -10,7 +10,7 @@ source:
   sha256: 5bfb42a8fd76e67c7caee1ca8ee268850f7d09d53507dd0211821f2ac7757ba1
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   entry_points:
     - docket = docket.__main__:app
